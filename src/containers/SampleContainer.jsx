@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SamplePresentation from './SamplePresentation.jsx';
+import SamplePresentation from '../components/SamplePresentation/SamplePresentation.jsx';
 
 class SampleContainer extends Component {
   constructor(props) {
