@@ -1,4 +1,5 @@
 import React from 'react';
+import './SamplePresentation.scss';
 
 const SamplePresentation = props => (
   <div>
