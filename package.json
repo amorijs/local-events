@@ -1,7 +1,7 @@
 {
-  "name": "edm-events",
+  "name": "local-events",
   "version": "1.0.0",
-  "description": "Find edm events near you",
+  "description": "Front-end portion of the local-events application",
   "main": "src/app.js",
   "repository": "https://github.com/amorijs/react-boilerplate",
   "author": "Chris Amori",
