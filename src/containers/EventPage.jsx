@@ -13,7 +13,7 @@ class EventPage extends Component {
   }
 
   getData = () =>
-    fetch('http://localhost:3000/djlist')
+    fetch(this.props.url)
       .then(response => response.json())
       .then(eventsData => this.setState({ eventsData }))
       .catch(e => console.log(e));
@@ -24,18 +24,16 @@ class EventPage extends Component {
 
   handleSortAndFilterChange = event => {
     const { name, value } = event.target;
-    console.log(name);
-    console.log(value);
     if (name === 'order') return this.sortOrder(value);
     if (name === 'filter-old') this.setState({ filterOld: !this.state.filterOld });
   };
 
   sortOrder = value => {
     const { eventsData } = this.state;
-    const newEventsData = [...eventsData];
+    const newEventsData = eventsData.map(elem => ({ ...elem }));
 
-    if (value === 'latest') newEventsData.sort((a, b) => new Date(a) - new Date(b));
-    if (value === 'earliest') newEventsData.sort((a, b) => new Date(b) - new Date(a));
+    if (value === 'latest') newEventsData.sort((a, b) => new Date(b.date) - new Date(a.date));
+    if (value === 'earliest') newEventsData.sort((a, b) => new Date(a.date) - new Date(b.date));
 
     this.setState({ eventsData: newEventsData });
   };
